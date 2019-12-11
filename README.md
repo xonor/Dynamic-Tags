@@ -4,8 +4,7 @@ Dynamic Tags uses the create-tags API, meta-data service and some system monitor
 AWS CLI needs to be installed and configured with the appropriate tagging permissions.
 This has been confirmed to work on Amazon Linux 1 and 2.
 
-This is what it looks like:
-
+## Screenshot
 ![Image](media/Dynamic-Tags.png)
 
 
