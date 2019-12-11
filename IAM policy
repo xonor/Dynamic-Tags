@@ -1,3 +1,6 @@
+Here is an IAM policy example for the instance profile using a least privilege model. 
+
+
 {
     "Version": "2012-10-17",
     "Statement": [
