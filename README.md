@@ -2,6 +2,7 @@
 
 Dynamic Tags uses the create-tags API, meta-data service and some system monitoring utilities.
 AWS CLI needs to be installed and configured with the appropriate tagging permissions.
+This has been confirmed to work on Amazon Linux 1 and 2.
 
 This is what it looks like:
 
@@ -15,17 +16,15 @@ Here is an IAM policy example for the instance profile using a least privilege m
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": "VisualEditor0",
             "Effect": "Allow",
             "Action": "ec2:CreateTags",
-            "Resource": "*"
+            "Resource": "arn:aws:ec2:*:*:instance/*"
         }
     ]
 }
 ```
 
 ## Script
-This has been tested on Amazon Linux 1 and 2.
 ```
 #!/bin/bash
 #Push the systems load average and available disk space to your EC2 console as a Tag.
@@ -39,7 +38,9 @@ $Aws ec2 create-tags --resources $Id --tags Key=LoadAverage,Value=$Load Key=Disk
 
 ## Executable permissions
 The script needs executable permissions so that Cron can run it.
-```$ chmod 700 /root/tagger.sh```
+```
+$ chmod 700 /root/tagger.sh
+```
 
 ## Crontab
 Here is the entry you need to make. It will run every five minutes.
