@@ -15,6 +15,6 @@ $ chmod 700 /root/tagger.sh
 
 ## Crontab
 Here is the entry you need to make. It will run every five minutes.
-$ crontab -l
-*/5 * * * * /root/tagger.sh
 $ crontab -e
+*/5 * * * * /root/tagger.sh
+$ crontab -l
